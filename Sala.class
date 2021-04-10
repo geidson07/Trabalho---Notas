@@ -1,0 +1,35 @@
+package others_class;
+
+import java.util.ArrayList;
+
+public class Sala {
+	int i;
+	
+	ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
+	Aluno novoAluno;
+	
+	public void insereAluno(String nome, String cpf, float nota) {
+		novoAluno = new Aluno(nome, cpf, nota);         
+        listaAluno.add(novoAluno);
+	}
+	
+	public void listarTodos() {
+		 for (int i=0; i<=listaAluno.size(); i++){
+			 System.out.println("Nome: " + listaAluno.get(i).getNome());
+			 System.out.println("CPF: " + listaAluno.get(i).getCpf());
+			 System.out.println("Nota: " + listaAluno.get(i).calculaNotas(i));
+         }
+	}
+	
+	public void verSituacoes() {
+		for(i=0; i<listaAluno.size(); i++){
+			System.out.println("Nome: " + listaAluno.get(i).getNome());
+			System.out.println("Somatorio de notas: " + listaAluno.get(i).calculaNotas(i));
+			if (listaAluno.get(i).calculaNotas(i)>=70) {
+				System.out.println("Situação: Aprovado!");
+			}else {
+				System.out.println("Situação: Reprovado!");
+			}
+		}
+	}		
+} 
