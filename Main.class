@@ -1,0 +1,68 @@
+import java.util.Scanner;
+//import others_class.Aluno;
+import others_class.Sala;
+
+public class Main {
+	public static void main(String [] args) {
+		//Aluno alunoObj = new Aluno();
+		Sala salaObj = new Sala();
+		
+		Scanner tecladoObj = new Scanner (System.in);
+		int opcao;
+		
+		String nome, cpf;		
+		float nota;
+				
+		do {		
+			System.out.print("\n           MENU              \n\n");
+	        System.out.print("|-----------------------------|\n");
+	        System.out.print("| Opção 1 - Inserir           |\n");
+	        System.out.print("| Opção 2 - Listar            |\n");
+	        System.out.print("| Opção 3 - Situações         |\n");	        
+	        System.out.print("| Opção 4 - Sair              |\n");
+	        System.out.print("|-----------------------------|\n");
+	        
+	        System.out.print("\nDigite uma opção: ");
+	        
+	        opcao = tecladoObj.nextInt();
+	        tecladoObj.nextLine();
+	        
+	        switch (opcao) {	       
+	        case 1:
+	            System.out.print("\nOpção Inserir Selecionada!\n\n");
+            	System.out.print("Digite o nome do aluno: ");	            	
+            	nome = tecladoObj.nextLine();
+            	
+            	System.out.print("Digite o n° do CPF: ");
+            	cpf = tecladoObj.nextLine();
+            	            	  	
+            	System.out.print("Digite a nota: ");
+            	nota = tecladoObj.nextFloat();        	
+	            	            	
+	            salaObj.insereAluno(nome, cpf, nota);
+	            
+	            System.out.print("\nCadastrado com sucesso!\n");
+	            break;
+            
+	        case 2:
+	        	System.out.print("\nOpção Listar Alunos Selecionada!\n\n");
+	        	salaObj.listarTodos();
+	        	break;
+	        	
+	        case 3:
+	        	System.out.print("\nOpção Situações Selecionada!\n\n");
+	        	salaObj.verSituacoes();
+	        	break;
+        	
+	        case 4:
+	        	System.out.print("Até mais...!\n\n");
+	        	tecladoObj.close();
+	        	break;
+	        
+        	default:
+        		System.out.print("\nOpção inválida!\n\n");
+        		break;
+	        }
+		}while(opcao != 4);
+	}
+}
